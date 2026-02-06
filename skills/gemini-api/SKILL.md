@@ -30,6 +30,7 @@ The Gemini API provides access to Google's most advanced AI models. Key capabili
 
 - **Python**: `google-genai`install with `pip install google-genai`
 - **JavaScript/TypeScript**: `@google/genai` install with `npm install @google/genai`
+- **Go**: `google.golang.org/genai` install with `go get google.golang.org/genai`
 
 > [!WARNING]
 > Legacy SDKs `google-generativeai` (Python) and `@google/generative-ai` (JS) are deprecated. Migrate to the new SDKs above urgently by following the Migration Guide.
@@ -58,6 +59,33 @@ const response = await ai.models.generateContent({
   contents: "Explain quantum computing"
 });
 console.log(response.text);
+```
+
+### Go
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"log"
+	"google.golang.org/genai"
+)
+
+func main() {
+	ctx := context.Background()
+	client, err := genai.NewClient(ctx, nil)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	resp, err := client.Models.GenerateContent(ctx, "gemini-3-flash-preview", genai.Text("Explain quantum computing"), nil)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	fmt.Println(resp.Text)
+}
 ```
 
 ## How to use the Gemini API
