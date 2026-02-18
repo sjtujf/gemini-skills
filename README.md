@@ -43,6 +43,5 @@ npx ctx7 skills install /google-gemini/gemini-skills gemini-api-dev
 
 ## Disclaimer
 
-This is not an officially supported Google product. This project is not
-eligible for the [Google Open Source Software Vulnerability Rewards
-Program](https://bughunters.google.com/open-source-security).
+
+Modified by OpenClaw on 2026-02-18
